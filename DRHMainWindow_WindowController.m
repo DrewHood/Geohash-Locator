@@ -42,8 +42,8 @@
     mapView.mapType = MKMapTypeStandard;
     mapView.showsUserLocation = TRUE;
     
-    // Sign up for location notifications.
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(locationDidUpdate) name: kLocationManagerDidUpdateLocationNotification object: [DRHGeohashLocator sharedLocator]];
+    // Sign up for location notifications
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(centerMapOnCoordinates:) name: kLocationManagerDidUpdateLocationNotification object: [DRHGeohashLocator sharedLocator]];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(locationTrackingDidStop) name: kLocationManagerDidStopTrackingNotification object: [DRHGeohashLocator sharedLocator]];
 }
 
@@ -119,7 +119,7 @@
 
 -(IBAction) recenterAction: (id) sender
 {
-    [self locationDidUpdate];
+    [self centerMapOnCoordinates: nil];
 }
 
 // Location Update Handling
@@ -128,14 +128,31 @@
     NSLog(@"Where'd you go?");
 }
 
--(void) locationDidUpdate
+-(void) centerMapOnCoordinates: (id) var
 {
-    NSLog(@"I heard you're here: %@", [[DRHGeohashLocator sharedLocator].locationManager.location description]);
-    
     // Extract the coords.
-    CLLocationCoordinate2D coords = [[DRHGeohashLocator sharedLocator].locationManager.location coordinate];
+    CLLocationCoordinate2D coords;
     
-    // We want to center on the graticule, not the user, so we need to do some math.
+    // If they're given to us as var, use that, otherwise use user location.
+    if ( var != nil ) {
+        
+        if ( [var isKindOfClass: [CLLocation class]] && [var respondsToSelector: @selector(coordinate)] )
+            coords = [var coordinate];
+        else if ( [var isKindOfClass: [CLLocationManager class]] && [var respondsToSelector: @selector(location)] ) {
+            
+            CLLocationManager * var = var;
+            
+            coords = [var location].coordinate;
+            
+        } else if ( [var isKindOfClass: [DRHGeohashLocator class]] && [var respondsToSelector: @selector(locationManager)] )
+            coords = [[[var locationManager] location] coordinate];
+        else
+            coords = [[[[DRHGeohashLocator sharedLocator] locationManager] location] coordinate];
+        
+    } else
+        coords = [[[[DRHGeohashLocator sharedLocator] locationManager] location] coordinate];
+    
+    // We want to center on the graticule, not the location given, so we need to do some math.
     CLLocationDegrees lat = coords.latitude;
     CLLocationDegrees lon = coords.longitude;
     
@@ -163,6 +180,14 @@
     
     // Plot the hashpoint.
     [self plotGeohash];
+}
+
+/* Map View Delegation *\
+\***********************/
+
+-(void) mapView: (MKMapView *) map regionDidChangeAnimated: (BOOL) animated
+{
+    
 }
 
 @end

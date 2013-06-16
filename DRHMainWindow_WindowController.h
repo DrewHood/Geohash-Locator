@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DRHMainWindow_WindowController : NSWindowController
+@interface DRHMainWindow_WindowController : NSWindowController <MKMapViewDelegate>
 {
     BOOL showMultipleHashes;
     
@@ -47,6 +47,11 @@
 
 // Location Update Handling
 -(void) locationTrackingDidStop;
--(void) locationDidUpdate;
+-(void) centerMapOnCoordinates: (id) var;
+
+/* Map View Delegation *\
+\***********************/
+
+-(void) mapView: (MKMapView *) map regionDidChangeAnimated: (BOOL) animated;
 
 @end
