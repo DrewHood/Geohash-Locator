@@ -10,6 +10,7 @@
                 <action selector="clearMap:" destination="gE5-7A-GW0" id="Lty-0J-DFi"/>
                 <action selector="datePickerAction:" destination="lIe-pL-ilf" id="ooq-LR-iAz"/>
                 <action selector="mapTypeAction:" destination="P3L-Mc-Hay" id="7kL-PL-aL3"/>
+                <action selector="recenterAction:" destination="j46-dv-1G3" id="Qiw-VU-lh9"/>
                 <action selector="showPopUpAction:" destination="r0K-Gs-dPj" id="UDr-Wl-XxT"/>
                 <outlet property="clearMapButton" destination="gE5-7A-GW0" id="bON-wB-5Hj"/>
                 <outlet property="datePicker" destination="lIe-pL-ilf" id="xbe-8Q-mdh"/>
@@ -54,6 +55,14 @@
                                         </segments>
                                     </segmentedCell>
                                 </segmentedControl>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j46-dv-1G3">
+                                    <rect key="frame" x="190" y="7" width="95" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Recenter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xkg-O4-vK8">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -112,4 +121,21 @@
             </connections>
         </window>
     </objects>
+    <classes>
+        <class className="DRHMainWindow_WindowController" superclassName="NSWindowController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DRHMainWindow_WindowController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearMap:"/>
+                <relationship kind="action" name="datePickerAction:"/>
+                <relationship kind="action" name="mapTypeAction:"/>
+                <relationship kind="action" name="recenterAction:"/>
+                <relationship kind="action" name="showPopUpAction:"/>
+                <relationship kind="outlet" name="clearMapButton" candidateClass="NSButton"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="NSDatePicker"/>
+                <relationship kind="outlet" name="mapTypeSeg" candidateClass="NSSegmentedControl"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="showPopUp" candidateClass="NSPopUpButton"/>
+            </relationships>
+        </class>
+    </classes>
 </document>

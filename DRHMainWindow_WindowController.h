@@ -43,6 +43,7 @@
 -(IBAction) mapTypeAction: (id) sender;
 -(IBAction) clearMap: (id) sender;
 -(IBAction) showPopUpAction: (id) sender;
+-(IBAction) recenterAction: (id) sender;
 
 // Location Update Handling
 -(void) locationTrackingDidStop;

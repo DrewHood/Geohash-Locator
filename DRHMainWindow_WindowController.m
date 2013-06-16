@@ -117,6 +117,11 @@
     [self plotGeohash];
 }
 
+-(IBAction) recenterAction: (id) sender
+{
+    [self locationDidUpdate];
+}
+
 // Location Update Handling
 -(void) locationTrackingDidStop
 {
