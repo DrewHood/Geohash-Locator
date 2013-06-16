@@ -9,7 +9,23 @@
 #import <Cocoa/Cocoa.h>
 
 @interface DRHAppDelegate : NSObject <NSApplicationDelegate>
+{
+    // View
+    DRHMainWindow_WindowController * window;
+}
 
-@property (assign) IBOutlet NSWindow *window;
+/* Properties *\
+\**************/
+
+/* Methods *\
+\***********/
+
+// App Init
+-(void) applicationDidFinishLaunching: (NSNotification *) aNotification;
+-(BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) sender;
+-(void) applicationWillTerminate: (NSNotification *) notification;
+
+// Meta
++(DRHAppDelegate *) sharedDelegate;
 
 @end

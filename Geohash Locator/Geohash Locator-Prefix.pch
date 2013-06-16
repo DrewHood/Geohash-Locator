@@ -5,5 +5,18 @@
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>
+#import <MapKit/MapKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #endif
+
+
+/* App Files *\
+\*************/
+
+// Model
+#import "DRHGeohashLocator.h"
+
+// View
+#import "DRHMainWindow_WindowController.h"
