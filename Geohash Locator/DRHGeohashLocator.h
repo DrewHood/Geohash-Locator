@@ -33,6 +33,9 @@ extern NSString * const kLocationManagerDidUpdateLocationNotification;
 +(DRHGeohashLocator *) sharedLocator;
 -(DRHGeohashLocator *) init;
 
+// Geohashing
+-(CLLocationCoordinate2D) retrieveHashForLat: (CLLocationDegrees) lat andLon: (CLLocationDegrees) lon forDate: (NSDate *) date;
+
 // Tracking Setup
 -(CLLocationManager *) startTracking;
 -(void) stopTracking;

@@ -80,8 +80,8 @@
     
     // Create the span.
     MKCoordinateSpan span;
-    span.latitudeDelta = 1.5;
-    span.longitudeDelta = 1.5;
+    span.latitudeDelta = 1.25;
+    span.longitudeDelta = 1.25;
     
     // Build the region.
     MKCoordinateRegion region;
@@ -90,6 +90,16 @@
     
     // Center!
     [mapView setRegion: region animated: YES];
+    
+    // Now grab the hash coords.
+    CLLocationCoordinate2D hashCoords = [[DRHGeohashLocator sharedLocator] retrieveHashForLat: coords.latitude andLon: coords.longitude forDate: datePicker.dateValue];
+    
+    // Create an annotation.
+    MKPointAnnotation * point = [[MKPointAnnotation alloc] init];
+    point.coordinate = hashCoords;
+    
+    // And add it to the map.
+    [mapView addAnnotation: point];
 }
 
 @end

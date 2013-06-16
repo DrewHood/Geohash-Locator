@@ -52,6 +52,52 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
     return self;
 }
 
+// Geohashing
+-(CLLocationCoordinate2D) retrieveHashForLat: (CLLocationDegrees) lat andLon: (CLLocationDegrees) lon forDate: (NSDate *) date
+{
+    // Digest the data.
+    lat = (int) lat;
+    lon = (int) lon;
+    
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString * dateString = [dateFormatter stringFromDate: date];
+    
+    // Set up the URL for the API call.
+    NSString * urlString = [NSString stringWithFormat: @"http://relet.net/geo/%i/%i/%@", (int) lat, (int) lon, dateString];
+    
+    NSLog(@"Calling relet... %@", urlString);
+    
+    NSURL * url = [NSURL URLWithString: urlString];
+    
+    // Call the API and buffer the data.
+    NSData * resultData = [NSData dataWithContentsOfURL: url];
+    
+    // Parse the JSON into a dictionary.
+    NSError * parsingError;
+    
+    NSDictionary * result = [NSJSONSerialization JSONObjectWithData: resultData options: NSJSONReadingMutableContainers error: &parsingError];
+    
+    // Prepare a container for the result.
+    CLLocationCoordinate2D hashCoords;
+    hashCoords.latitude = -1;
+    hashCoords.longitude = -1;
+    
+    // Extract and parse results.
+    if ( [result objectForKey: @"error"] == nil ) {
+        
+        // Extract the lat and lon.
+        hashCoords.latitude = [[result valueForKey: @"lat"] doubleValue];
+        hashCoords.longitude = [[result valueForKey: @"lon"] doubleValue];
+        
+    }
+    
+    NSLog(@"Hash point found: %f, %f", hashCoords.latitude, hashCoords.longitude);
+    
+    return hashCoords;
+}
+
 // Tracking Setup
 -(CLLocationManager *) startTracking
 {
