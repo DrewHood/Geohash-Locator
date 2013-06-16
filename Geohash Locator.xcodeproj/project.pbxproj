@@ -10,46 +10,34 @@
 		3ABC0835176D0043000AE52D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0834176D0043000AE52D /* Cocoa.framework */; };
 		3ABC083F176D0043000AE52D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC083D176D0043000AE52D /* InfoPlist.strings */; };
 		3ABC0841176D0043000AE52D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC0840176D0043000AE52D /* main.m */; };
-		3ABC0845176D0043000AE52D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC0843176D0043000AE52D /* Credits.rtf */; };
 		3ABC0848176D0043000AE52D /* DRHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC0847176D0043000AE52D /* DRHAppDelegate.m */; };
 		3ABC084B176D0043000AE52D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC0849176D0043000AE52D /* MainMenu.xib */; };
-		3ABC084D176D0043000AE52D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC084C176D0043000AE52D /* Images.xcassets */; };
-		3ABC0854176D0043000AE52D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0853176D0043000AE52D /* XCTest.framework */; };
-		3ABC0855176D0043000AE52D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0834176D0043000AE52D /* Cocoa.framework */; };
-		3ABC085D176D0043000AE52D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC085B176D0043000AE52D /* InfoPlist.strings */; };
-		3ABC085F176D0043000AE52D /* Geohash_LocatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC085E176D0043000AE52D /* Geohash_LocatorTests.m */; };
+		3ABC0869176D00AD000AE52D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0868176D00AD000AE52D /* MapKit.framework */; };
+		3ABC086D176D0138000AE52D /* DRHGeohashLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC086C176D0138000AE52D /* DRHGeohashLocator.m */; };
+		3ABC0871176D0177000AE52D /* DRHMainWindow_WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC086F176D0177000AE52D /* DRHMainWindow_WindowController.m */; };
+		3ABC0872176D0177000AE52D /* DRHMainWindow_WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC0870176D0177000AE52D /* DRHMainWindow_WindowController.xib */; };
+		3ABC0874176D3B05000AE52D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0873176D3B05000AE52D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3ABC0856176D0043000AE52D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3ABC0829176D0043000AE52D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3ABC0830176D0043000AE52D;
-			remoteInfo = "Geohash Locator";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3ABC0831176D0043000AE52D /* Geohash Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geohash Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABC0834176D0043000AE52D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3ABC0837176D0043000AE52D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		3ABC0838176D0043000AE52D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3ABC0839176D0043000AE52D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3ABC083C176D0043000AE52D /* Geohash Locator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Geohash Locator-Info.plist"; sourceTree = "<group>"; };
 		3ABC083E176D0043000AE52D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3ABC0840176D0043000AE52D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3ABC0842176D0043000AE52D /* Geohash Locator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Geohash Locator-Prefix.pch"; sourceTree = "<group>"; };
-		3ABC0844176D0043000AE52D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3ABC0846176D0043000AE52D /* DRHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRHAppDelegate.h; sourceTree = "<group>"; };
 		3ABC0847176D0043000AE52D /* DRHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRHAppDelegate.m; sourceTree = "<group>"; };
 		3ABC084A176D0043000AE52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3ABC084C176D0043000AE52D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3ABC0852176D0043000AE52D /* Geohash LocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "Geohash LocatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ABC0853176D0043000AE52D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3ABC085A176D0043000AE52D /* Geohash LocatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Geohash LocatorTests-Info.plist"; sourceTree = "<group>"; };
-		3ABC085C176D0043000AE52D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3ABC085E176D0043000AE52D /* Geohash_LocatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Geohash_LocatorTests.m; sourceTree = "<group>"; };
+		3ABC0868176D00AD000AE52D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3ABC086B176D0138000AE52D /* DRHGeohashLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRHGeohashLocator.h; sourceTree = "<group>"; };
+		3ABC086C176D0138000AE52D /* DRHGeohashLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRHGeohashLocator.m; sourceTree = "<group>"; };
+		3ABC086E176D0177000AE52D /* DRHMainWindow_WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRHMainWindow_WindowController.h; sourceTree = "<group>"; };
+		3ABC086F176D0177000AE52D /* DRHMainWindow_WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRHMainWindow_WindowController.m; sourceTree = "<group>"; };
+		3ABC0870176D0177000AE52D /* DRHMainWindow_WindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DRHMainWindow_WindowController.xib; sourceTree = "<group>"; };
+		3ABC0873176D3B05000AE52D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,16 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABC0874176D3B05000AE52D /* CoreLocation.framework in Frameworks */,
+				3ABC0869176D00AD000AE52D /* MapKit.framework in Frameworks */,
 				3ABC0835176D0043000AE52D /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3ABC084F176D0043000AE52D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3ABC0855176D0043000AE52D /* Cocoa.framework in Frameworks */,
-				3ABC0854176D0043000AE52D /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +57,8 @@
 		3ABC0828176D0043000AE52D = {
 			isa = PBXGroup;
 			children = (
-				3ABC083A176D0043000AE52D /* Geohash Locator */,
-				3ABC0858176D0043000AE52D /* Geohash LocatorTests */,
+				3ABC083A176D0043000AE52D /* Model */,
+				3ABC086A176D00DD000AE52D /* View */,
 				3ABC0833176D0043000AE52D /* Frameworks */,
 				3ABC0832176D0043000AE52D /* Products */,
 			);
@@ -87,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				3ABC0831176D0043000AE52D /* Geohash Locator.app */,
-				3ABC0852176D0043000AE52D /* Geohash LocatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,32 +75,25 @@
 		3ABC0833176D0043000AE52D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ABC0873176D3B05000AE52D /* CoreLocation.framework */,
+				3ABC0837176D0043000AE52D /* AppKit.framework */,
+				3ABC0839176D0043000AE52D /* Foundation.framework */,
+				3ABC0868176D00AD000AE52D /* MapKit.framework */,
 				3ABC0834176D0043000AE52D /* Cocoa.framework */,
-				3ABC0853176D0043000AE52D /* XCTest.framework */,
-				3ABC0836176D0043000AE52D /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3ABC0836176D0043000AE52D /* Other Frameworks */ = {
+		3ABC083A176D0043000AE52D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3ABC0837176D0043000AE52D /* AppKit.framework */,
-				3ABC0838176D0043000AE52D /* CoreData.framework */,
-				3ABC0839176D0043000AE52D /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		3ABC083A176D0043000AE52D /* Geohash Locator */ = {
-			isa = PBXGroup;
-			children = (
+				3ABC083B176D0043000AE52D /* Supporting Files */,
 				3ABC0846176D0043000AE52D /* DRHAppDelegate.h */,
 				3ABC0847176D0043000AE52D /* DRHAppDelegate.m */,
-				3ABC0849176D0043000AE52D /* MainMenu.xib */,
-				3ABC084C176D0043000AE52D /* Images.xcassets */,
-				3ABC083B176D0043000AE52D /* Supporting Files */,
+				3ABC086B176D0138000AE52D /* DRHGeohashLocator.h */,
+				3ABC086C176D0138000AE52D /* DRHGeohashLocator.m */,
 			);
+			name = Model;
 			path = "Geohash Locator";
 			sourceTree = "<group>";
 		};
@@ -131,27 +104,19 @@
 				3ABC083D176D0043000AE52D /* InfoPlist.strings */,
 				3ABC0840176D0043000AE52D /* main.m */,
 				3ABC0842176D0043000AE52D /* Geohash Locator-Prefix.pch */,
-				3ABC0843176D0043000AE52D /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3ABC0858176D0043000AE52D /* Geohash LocatorTests */ = {
+		3ABC086A176D00DD000AE52D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3ABC085E176D0043000AE52D /* Geohash_LocatorTests.m */,
-				3ABC0859176D0043000AE52D /* Supporting Files */,
+				3ABC0849176D0043000AE52D /* MainMenu.xib */,
+				3ABC086E176D0177000AE52D /* DRHMainWindow_WindowController.h */,
+				3ABC086F176D0177000AE52D /* DRHMainWindow_WindowController.m */,
+				3ABC0870176D0177000AE52D /* DRHMainWindow_WindowController.xib */,
 			);
-			path = "Geohash LocatorTests";
-			sourceTree = "<group>";
-		};
-		3ABC0859176D0043000AE52D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3ABC085A176D0043000AE52D /* Geohash LocatorTests-Info.plist */,
-				3ABC085B176D0043000AE52D /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,24 +139,6 @@
 			productReference = 3ABC0831176D0043000AE52D /* Geohash Locator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3ABC0851176D0043000AE52D /* Geohash LocatorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3ABC0865176D0043000AE52D /* Build configuration list for PBXNativeTarget "Geohash LocatorTests" */;
-			buildPhases = (
-				3ABC084E176D0043000AE52D /* Sources */,
-				3ABC084F176D0043000AE52D /* Frameworks */,
-				3ABC0850176D0043000AE52D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3ABC0857176D0043000AE52D /* PBXTargetDependency */,
-			);
-			name = "Geohash LocatorTests";
-			productName = "Geohash LocatorTests";
-			productReference = 3ABC0852176D0043000AE52D /* Geohash LocatorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,8 +149,12 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Drew R. Hood";
 				TargetAttributes = {
-					3ABC0851176D0043000AE52D = {
-						TestTargetID = 3ABC0830176D0043000AE52D;
+					3ABC0830176D0043000AE52D = {
+						SystemCapabilities = {
+							com.apple.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -221,7 +172,6 @@
 			projectRoot = "";
 			targets = (
 				3ABC0830176D0043000AE52D /* Geohash Locator */,
-				3ABC0851176D0043000AE52D /* Geohash LocatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,17 +182,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABC083F176D0043000AE52D /* InfoPlist.strings in Resources */,
-				3ABC084D176D0043000AE52D /* Images.xcassets in Resources */,
-				3ABC0845176D0043000AE52D /* Credits.rtf in Resources */,
 				3ABC084B176D0043000AE52D /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3ABC0850176D0043000AE52D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3ABC085D176D0043000AE52D /* InfoPlist.strings in Resources */,
+				3ABC0872176D0177000AE52D /* DRHMainWindow_WindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,27 +195,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABC0841176D0043000AE52D /* main.m in Sources */,
+				3ABC086D176D0138000AE52D /* DRHGeohashLocator.m in Sources */,
+				3ABC0871176D0177000AE52D /* DRHMainWindow_WindowController.m in Sources */,
 				3ABC0848176D0043000AE52D /* DRHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3ABC084E176D0043000AE52D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3ABC085F176D0043000AE52D /* Geohash_LocatorTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3ABC0857176D0043000AE52D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3ABC0830176D0043000AE52D /* Geohash Locator */;
-			targetProxy = 3ABC0856176D0043000AE52D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3ABC083D176D0043000AE52D /* InfoPlist.strings */ = {
@@ -285,28 +212,13 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3ABC0843176D0043000AE52D /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3ABC0844176D0043000AE52D /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		3ABC0849176D0043000AE52D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3ABC084A176D0043000AE52D /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		3ABC085B176D0043000AE52D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3ABC085C176D0043000AE52D /* en */,
-			);
-			name = InfoPlist.strings;
+			path = "Geohash Locator";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -408,46 +320,6 @@
 			};
 			name = Release;
 		};
-		3ABC0866176D0043000AE52D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geohash Locator.app/Contents/MacOS/Geohash Locator";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geohash Locator/Geohash Locator-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Geohash LocatorTests/Geohash LocatorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		3ABC0867176D0043000AE52D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geohash Locator.app/Contents/MacOS/Geohash Locator";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geohash Locator/Geohash Locator-Prefix.pch";
-				INFOPLIST_FILE = "Geohash LocatorTests/Geohash LocatorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -465,14 +337,6 @@
 			buildConfigurations = (
 				3ABC0863176D0043000AE52D /* Debug */,
 				3ABC0864176D0043000AE52D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		3ABC0865176D0043000AE52D /* Build configuration list for PBXNativeTarget "Geohash LocatorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3ABC0866176D0043000AE52D /* Debug */,
-				3ABC0867176D0043000AE52D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
