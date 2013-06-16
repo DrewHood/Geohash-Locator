@@ -10,19 +10,24 @@
 
 @interface DRHMainWindow_WindowController : NSWindowController
 {
+    BOOL showMultipleHashes;
+    
     IBOutlet MKMapView * mapView;
     IBOutlet NSDatePicker * datePicker;
     IBOutlet NSSegmentedControl * mapTypeSeg;
     IBOutlet NSButton * clearMapButton;
+    IBOutlet NSPopUpButton * showPopUp;
 }
 
 /* Properties *\
 \**************/
 
+@property (nonatomic) BOOL showMultipleHashes;
 @property (nonatomic, retain) IBOutlet MKMapView * mapView;
 @property (nonatomic, retain) IBOutlet NSDatePicker * datePicker;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl * mapTypeSeg;
 @property (nonatomic, retain) IBOutlet NSButton * clearMapButton;
+@property (nonatomic, retain) IBOutlet NSPopUpButton * showPopUp;
 
 /* Methods *\
 \***********/
@@ -37,6 +42,7 @@
 -(IBAction) datePickerAction: (id) sender;
 -(IBAction) mapTypeAction: (id) sender;
 -(IBAction) clearMap: (id) sender;
+-(IBAction) showPopUpAction: (id) sender;
 
 // Location Update Handling
 -(void) locationTrackingDidStop;

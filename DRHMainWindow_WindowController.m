@@ -13,10 +13,12 @@
 /* Properties *\
 \**************/
 
+@synthesize showMultipleHashes;
 @synthesize mapView;
 @synthesize datePicker;
 @synthesize mapTypeSeg;
 @synthesize clearMapButton;
+@synthesize showPopUp;
 
 /* Methods *\
 \***********/
@@ -26,8 +28,13 @@
 {
     [super windowDidLoad];
     
+    self.showMultipleHashes = TRUE;
+    
+    [showPopUp selectItemAtIndex: (int) showMultipleHashes];
+    
     // Set default date.
     [datePicker setDateValue: [NSDate date]];
+    [datePicker setMaxDate: [NSDate date]];
     
     // Set up map.
     mapView.showsZoomControls = TRUE;
@@ -43,11 +50,29 @@
 // View Management
 -(void) plotGeohash
 {
+    // Clear the map if needed.
+    if ( !showMultipleHashes )
+        [self clearMap: nil];
+    
     // Extract the user's coords.
     CLLocationCoordinate2D coords = [[DRHGeohashLocator sharedLocator].locationManager.location coordinate];
     
     // Now grab the hash coords.
     CLLocationCoordinate2D hashCoords = [[DRHGeohashLocator sharedLocator] retrieveHashForLat: coords.latitude andLon: coords.longitude forDate: datePicker.dateValue];
+    
+    // If it's already plotted, stop here.
+    if ( [mapView.annotations count] > 0 ) {
+        
+        for ( int i = 0; i < [mapView.annotations count]; i++ ) {
+            
+            CLLocationCoordinate2D shownCoord = [[mapView.annotations objectAtIndex: i] coordinate];
+            
+            if ( shownCoord.latitude == hashCoords.latitude && shownCoord.longitude == hashCoords.longitude )
+                return;
+            
+        }
+        
+    }
     
     // If the points are invalid, we're done.
     if ( hashCoords.latitude == -1000 && hashCoords.longitude == -1000 )
@@ -78,11 +103,18 @@
 
 -(IBAction) clearMap: (id) sender
 {
-    BOOL showUser = mapView.showsUserLocation;
-    
     [mapView removeAnnotations: mapView.annotations];
     
-    mapView.showsUserLocation = showUser;
+    mapView.showsUserLocation = TRUE;
+}
+
+-(IBAction) showPopUpAction: (id) sender
+{
+    [self clearMap: nil];
+    
+    self.showMultipleHashes = (BOOL) [showPopUp indexOfSelectedItem];
+    
+    [self plotGeohash];
 }
 
 // Location Update Handling
