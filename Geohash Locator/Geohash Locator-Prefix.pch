@@ -19,5 +19,4 @@
 #import "DRHGeohashLocator.h"
 
 // View
-#import "DRHSimpleMapAnnotation.h"
 #import "DRHMainWindow_WindowController.h"

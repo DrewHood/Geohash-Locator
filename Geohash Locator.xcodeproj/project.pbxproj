@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A5FFF8B176D68C4003B4E6E /* DRHSimpleMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FFF8A176D68C4003B4E6E /* DRHSimpleMapAnnotation.m */; };
 		3ABC0835176D0043000AE52D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC0834176D0043000AE52D /* Cocoa.framework */; };
 		3ABC083F176D0043000AE52D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC083D176D0043000AE52D /* InfoPlist.strings */; };
 		3ABC0841176D0043000AE52D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC0840176D0043000AE52D /* main.m */; };
@@ -21,8 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A5FFF89176D68C4003B4E6E /* DRHSimpleMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRHSimpleMapAnnotation.h; path = "Geohash Locator/DRHSimpleMapAnnotation.h"; sourceTree = "<group>"; };
-		3A5FFF8A176D68C4003B4E6E /* DRHSimpleMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRHSimpleMapAnnotation.m; path = "Geohash Locator/DRHSimpleMapAnnotation.m"; sourceTree = "<group>"; };
 		3ABC0831176D0043000AE52D /* Geohash Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geohash Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABC0834176D0043000AE52D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3ABC0837176D0043000AE52D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -118,8 +115,6 @@
 				3ABC086E176D0177000AE52D /* DRHMainWindow_WindowController.h */,
 				3ABC086F176D0177000AE52D /* DRHMainWindow_WindowController.m */,
 				3ABC0870176D0177000AE52D /* DRHMainWindow_WindowController.xib */,
-				3A5FFF89176D68C4003B4E6E /* DRHSimpleMapAnnotation.h */,
-				3A5FFF8A176D68C4003B4E6E /* DRHSimpleMapAnnotation.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -202,7 +197,6 @@
 				3ABC0841176D0043000AE52D /* main.m in Sources */,
 				3ABC086D176D0138000AE52D /* DRHGeohashLocator.m in Sources */,
 				3ABC0871176D0177000AE52D /* DRHMainWindow_WindowController.m in Sources */,
-				3A5FFF8B176D68C4003B4E6E /* DRHSimpleMapAnnotation.m in Sources */,
 				3ABC0848176D0043000AE52D /* DRHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

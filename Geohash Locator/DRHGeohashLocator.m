@@ -81,8 +81,8 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
     
     // Prepare a container for the result.
     CLLocationCoordinate2D hashCoords;
-    hashCoords.latitude = -1;
-    hashCoords.longitude = -1;
+    hashCoords.latitude = -1000;
+    hashCoords.longitude = -1000;
     
     // Extract and parse results.
     if ( [result objectForKey: @"error"] == nil ) {

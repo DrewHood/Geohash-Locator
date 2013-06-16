@@ -7,8 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DRHMainWindow_WindowController">
             <connections>
+                <action selector="clearMap:" destination="gE5-7A-GW0" id="Lty-0J-DFi"/>
                 <action selector="datePickerAction:" destination="lIe-pL-ilf" id="ooq-LR-iAz"/>
                 <action selector="mapTypeAction:" destination="P3L-Mc-Hay" id="7kL-PL-aL3"/>
+                <outlet property="clearMapButton" destination="gE5-7A-GW0" id="bON-wB-5Hj"/>
                 <outlet property="datePicker" destination="lIe-pL-ilf" id="xbe-8Q-mdh"/>
                 <outlet property="mapTypeSeg" destination="P3L-Mc-Hay" id="TXG-bm-oeP"/>
                 <outlet property="mapView" destination="37O-F5-HLN" id="3cD-uD-N9J"/>
@@ -18,7 +20,8 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <window title="Geohash Locator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="516" height="661"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
@@ -26,10 +29,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="516" height="661"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <mapView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37O-F5-HLN">
-                        <rect key="frame" x="20" y="20" width="476" height="453"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </mapView>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" boxType="oldStyle" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Z2O-O3-znI">
                         <rect key="frame" x="20" y="20" width="476" height="453"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -49,6 +48,10 @@
                                         </segments>
                                     </segmentedCell>
                                 </segmentedControl>
+                                <mapView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37O-F5-HLN">
+                                    <rect key="frame" x="-1" y="-1" width="476" height="453"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                </mapView>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -59,8 +62,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="1bi-Ag-3ta">
                             <font key="font" metaFont="system"/>
-                            <date key="date" timeIntervalSinceReferenceDate="-31536000">
-                                <!--2000-01-02 00:00:00 +0000-->
+                            <date key="date" timeIntervalSinceReferenceDate="61689600">
+                                <!--2002-12-16 00:00:00 +0000-->
                             </date>
                             <date key="minDate" timeIntervalSinceReferenceDate="61689600">
                                 <!--2002-12-16 00:00:00 +0000-->
@@ -69,6 +72,14 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gE5-7A-GW0">
+                        <rect key="frame" x="208" y="535" width="104" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Clear Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iuk-yu-UgA">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
             <connections>

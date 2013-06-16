@@ -16,6 +16,7 @@
 @synthesize mapView;
 @synthesize datePicker;
 @synthesize mapTypeSeg;
+@synthesize clearMapButton;
 
 /* Methods *\
 \***********/
@@ -39,17 +40,49 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(locationTrackingDidStop) name: kLocationManagerDidStopTrackingNotification object: [DRHGeohashLocator sharedLocator]];
 }
 
+// View Management
+-(void) plotGeohash
+{
+    // Extract the user's coords.
+    CLLocationCoordinate2D coords = [[DRHGeohashLocator sharedLocator].locationManager.location coordinate];
+    
+    // Now grab the hash coords.
+    CLLocationCoordinate2D hashCoords = [[DRHGeohashLocator sharedLocator] retrieveHashForLat: coords.latitude andLon: coords.longitude forDate: datePicker.dateValue];
+    
+    // If the points are invalid, we're done.
+    if ( hashCoords.latitude == -1000 && hashCoords.longitude == -1000 )
+        return;
+    
+    // Create an annotation.
+    MKPointAnnotation * point = [[MKPointAnnotation alloc] init];
+    point.coordinate = hashCoords;
+    
+    // And add it to the map.
+    [mapView addAnnotation: point];
+}
+
 // User Interaction
 -(IBAction) datePickerAction: (id) sender
 {
     // Log the date.
     NSLog(@"Date selected: %@", [[datePicker dateValue] description]);
+    
+    [self plotGeohash];
 }
 
 -(IBAction) mapTypeAction: (id) sender
 {
     // Set the map type.
     mapView.mapType = [sender selectedSegment];
+}
+
+-(IBAction) clearMap: (id) sender
+{
+    BOOL showUser = mapView.showsUserLocation;
+    
+    [mapView removeAnnotations: mapView.annotations];
+    
+    mapView.showsUserLocation = showUser;
 }
 
 // Location Update Handling
@@ -91,15 +124,8 @@
     // Center!
     [mapView setRegion: region animated: YES];
     
-    // Now grab the hash coords.
-    CLLocationCoordinate2D hashCoords = [[DRHGeohashLocator sharedLocator] retrieveHashForLat: coords.latitude andLon: coords.longitude forDate: datePicker.dateValue];
-    
-    // Create an annotation.
-    MKPointAnnotation * point = [[MKPointAnnotation alloc] init];
-    point.coordinate = hashCoords;
-    
-    // And add it to the map.
-    [mapView addAnnotation: point];
+    // Plot the hashpoint.
+    [self plotGeohash];
 }
 
 @end

@@ -13,6 +13,7 @@
     IBOutlet MKMapView * mapView;
     IBOutlet NSDatePicker * datePicker;
     IBOutlet NSSegmentedControl * mapTypeSeg;
+    IBOutlet NSButton * clearMapButton;
 }
 
 /* Properties *\
@@ -21,6 +22,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView * mapView;
 @property (nonatomic, retain) IBOutlet NSDatePicker * datePicker;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl * mapTypeSeg;
+@property (nonatomic, retain) IBOutlet NSButton * clearMapButton;
 
 /* Methods *\
 \***********/
@@ -28,9 +30,13 @@
 // Init
 -(void) windowDidLoad;
 
+// View Management
+-(void) plotGeohash;
+
 // User Interaction
 -(IBAction) datePickerAction: (id) sender;
 -(IBAction) mapTypeAction: (id) sender;
+-(IBAction) clearMap: (id) sender;
 
 // Location Update Handling
 -(void) locationTrackingDidStop;
