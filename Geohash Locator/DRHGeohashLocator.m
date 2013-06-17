@@ -61,6 +61,11 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
 // Geohashing
 -(CLLocationCoordinate2D) retrieveHashForLat: (CLLocationDegrees) lat andLon: (CLLocationDegrees) lon forDate: (NSDate *) date
 {
+    // Prepare a container for the result.
+    CLLocationCoordinate2D hashCoords;
+    hashCoords.latitude = -1000;
+    hashCoords.longitude = -1000;
+    
     // Digest the data.
     lat = (int) lat;
     lon = (int) lon;
@@ -80,15 +85,13 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
     // Call the API and buffer the data.
     NSData * resultData = [NSData dataWithContentsOfURL: url];
     
+    if ( resultData == nil )
+        return hashCoords;
+    
     // Parse the JSON into a dictionary.
     NSError * parsingError;
     
     NSDictionary * result = [NSJSONSerialization JSONObjectWithData: resultData options: NSJSONReadingMutableContainers error: &parsingError];
-    
-    // Prepare a container for the result.
-    CLLocationCoordinate2D hashCoords;
-    hashCoords.latitude = -1000;
-    hashCoords.longitude = -1000;
     
     // Extract and parse results.
     if ( [result objectForKey: @"error"] == nil ) {
