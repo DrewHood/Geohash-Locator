@@ -13,7 +13,7 @@
 /* Properties *\
 \**************/
 
-@synthesize showMultipleHashes, listenForUpdates;
+@synthesize showMultipleHashes, listenForUpdates, windowIsResizing;
 @synthesize mapView;
 @synthesize datePicker;
 @synthesize mapTypeSeg;
@@ -27,6 +27,12 @@
 -(void) windowDidLoad
 {
     [super windowDidLoad];
+    
+    // Sign up for window resize notifications.
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(windowWillStartResize) name: NSWindowWillStartLiveResizeNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(windowWillStartResize) name: NSWindowWillEnterFullScreenNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(windowDidEndResize) name: NSWindowDidEndLiveResizeNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(windowDidEndResize) name: NSWindowDidEnterFullScreenNotification object: nil];
     
     self.showMultipleHashes = TRUE;
     
@@ -215,11 +221,34 @@
         [self setListenForUpdates: FALSE];
 }
 
+/* Window Delegation *\
+\*********************/
+
+// Resizing
+-(void) windowWillStartResize
+{
+    windowIsResizing = TRUE;
+    
+    NSLog(@"Window resizing...");
+}
+
+-(void) windowDidEndResize
+{
+    windowIsResizing = FALSE;
+    
+    NSLog(@"Window resized.");
+    
+    [self plotGeohash];
+}
+
 /* Map View Delegation *\
 \***********************/
 
 -(void) mapView: (MKMapView *) map regionDidChangeAnimated: (BOOL) animated
 {
+    if ( windowIsResizing )
+        return;
+    
     [self plotGeohash];
 }
 

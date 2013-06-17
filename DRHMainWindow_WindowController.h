@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DRHMainWindow_WindowController : NSWindowController <MKMapViewDelegate>
+@interface DRHMainWindow_WindowController : NSWindowController <MKMapViewDelegate, NSWindowDelegate>
 {
-    BOOL showMultipleHashes, listenForUpdates;
+    BOOL showMultipleHashes, listenForUpdates, windowIsResizing;
     
     IBOutlet MKMapView * mapView;
     IBOutlet NSDatePicker * datePicker;
@@ -22,7 +22,7 @@
 /* Properties *\
 \**************/
 
-@property (nonatomic) BOOL showMultipleHashes, listenForUpdates;
+@property (nonatomic) BOOL showMultipleHashes, listenForUpdates, windowIsResizing;
 @property (nonatomic, retain) IBOutlet MKMapView * mapView;
 @property (nonatomic, retain) IBOutlet NSDatePicker * datePicker;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl * mapTypeSeg;
@@ -50,6 +50,13 @@
 -(void) locationTrackingDidStart;
 -(void) locationTrackingDidStop;
 -(void) centerMapOnCoordinates: (id) var;
+
+/* Window Delegation *\
+\*********************/
+
+// Resizing
+-(void) windowWillStartResize;
+-(void) windowDidEndResize;
 
 /* Map View Delegation *\
 \***********************/
