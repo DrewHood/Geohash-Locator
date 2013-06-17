@@ -32,14 +32,6 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9448C902-4271-4571-9D6B-732B0B83AD52</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Geohash Locator</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>CB05D821-6C00-4AE7-950D-FD37BCAB1FDA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Geohash Locator</string>
