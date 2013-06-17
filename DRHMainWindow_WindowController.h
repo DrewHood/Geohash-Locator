@@ -10,23 +10,23 @@
 
 @interface DRHMainWindow_WindowController : NSWindowController <MKMapViewDelegate>
 {
-    BOOL showMultipleHashes;
+    BOOL showMultipleHashes, listenForUpdates;
     
     IBOutlet MKMapView * mapView;
     IBOutlet NSDatePicker * datePicker;
     IBOutlet NSSegmentedControl * mapTypeSeg;
-    IBOutlet NSButton * clearMapButton;
+    IBOutlet NSButton * clearMapButton, * recenterButton;
     IBOutlet NSPopUpButton * showPopUp;
 }
 
 /* Properties *\
 \**************/
 
-@property (nonatomic) BOOL showMultipleHashes;
+@property (nonatomic) BOOL showMultipleHashes, listenForUpdates;
 @property (nonatomic, retain) IBOutlet MKMapView * mapView;
 @property (nonatomic, retain) IBOutlet NSDatePicker * datePicker;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl * mapTypeSeg;
-@property (nonatomic, retain) IBOutlet NSButton * clearMapButton;
+@property (nonatomic, retain) IBOutlet NSButton * clearMapButton, * recenterButton;
 @property (nonatomic, retain) IBOutlet NSPopUpButton * showPopUp;
 
 /* Methods *\
@@ -36,6 +36,7 @@
 -(void) windowDidLoad;
 
 // View Management
+-(void) setListenForUpdates: (BOOL) listen;
 -(void) plotGeohash;
 
 // User Interaction
@@ -46,6 +47,7 @@
 -(IBAction) recenterAction: (id) sender;
 
 // Location Update Handling
+-(void) locationTrackingDidStart;
 -(void) locationTrackingDidStop;
 -(void) centerMapOnCoordinates: (id) var;
 

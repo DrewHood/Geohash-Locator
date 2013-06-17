@@ -16,6 +16,7 @@
                 <outlet property="datePicker" destination="lIe-pL-ilf" id="xbe-8Q-mdh"/>
                 <outlet property="mapTypeSeg" destination="P3L-Mc-Hay" id="TXG-bm-oeP"/>
                 <outlet property="mapView" destination="37O-F5-HLN" id="3cD-uD-N9J"/>
+                <outlet property="recenterButton" destination="j46-dv-1G3" id="vyi-Ze-TeO"/>
                 <outlet property="showPopUp" destination="r0K-Gs-dPj" id="fts-aA-QGz"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
@@ -26,25 +27,26 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="516" height="661"/>
+            <rect key="contentRect" x="408" y="192" width="944" height="661"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <value key="minSize" type="size" width="949" height="661"/>
             <view key="contentView" wantsLayer="YES" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="516" height="661"/>
+                <rect key="frame" x="0.0" y="0.0" width="944" height="661"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" boxType="oldStyle" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Z2O-O3-znI">
-                        <rect key="frame" x="20" y="20" width="476" height="453"/>
+                    <box fixedFrame="YES" title="Box" boxType="oldStyle" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Z2O-O3-znI">
+                        <rect key="frame" x="174" y="0.0" width="770" height="661"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="474" height="451"/>
+                            <rect key="frame" x="1" y="1" width="768" height="659"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <mapView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37O-F5-HLN">
-                                    <rect key="frame" x="-1" y="-1" width="476" height="453"/>
+                                    <rect key="frame" x="-1" y="-2" width="771" height="662"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 </mapView>
                                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3L-Mc-Hay">
-                                    <rect key="frame" x="13" y="13" width="100" height="23"/>
+                                    <rect key="frame" x="15" y="14" width="100" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <segmentedCell key="cell" alignment="left" style="smallSquare" trackingMode="selectOne" id="z7L-xi-gRO">
                                         <font key="font" metaFont="system"/>
@@ -56,9 +58,9 @@
                                     </segmentedCell>
                                 </segmentedControl>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j46-dv-1G3">
-                                    <rect key="frame" x="190" y="7" width="95" height="32"/>
+                                    <rect key="frame" x="326" y="8" width="116" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Recenter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xkg-O4-vK8">
+                                    <buttonCell key="cell" type="push" title="My Location" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xkg-O4-vK8">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -69,7 +71,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-pL-ilf">
-                        <rect key="frame" x="357" y="493" width="139" height="148"/>
+                        <rect key="frame" x="15" y="457" width="139" height="148"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="1bi-Ag-3ta">
                             <font key="font" metaFont="system"/>
@@ -84,7 +86,7 @@
                         </datePickerCell>
                     </datePicker>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gE5-7A-GW0">
-                        <rect key="frame" x="14" y="535" width="104" height="32"/>
+                        <rect key="frame" x="14" y="13" width="156" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Clear Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iuk-yu-UgA">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -92,11 +94,11 @@
                         </buttonCell>
                     </button>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0K-Gs-dPj">
-                        <rect key="frame" x="18" y="580" width="149" height="26"/>
+                        <rect key="frame" x="18" y="58" width="149" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Multiple Hashes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="TpN-T9-CJN" id="6Ns-cN-NFk">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="XDL-WG-Az4">
                                 <items>
                                     <menuItem title="One Hash" id="u9V-FA-y7Q"/>
@@ -106,7 +108,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvX-DA-Bgg">
-                        <rect key="frame" x="17" y="606" width="38" height="17"/>
+                        <rect key="frame" x="17" y="84" width="38" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show" id="fDZ-QC-yH5">
                             <font key="font" metaFont="system"/>
@@ -114,6 +116,14 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIh-mQ-P5h">
+                        <rect key="frame" x="23" y="409" width="122" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Today's Hash" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kvi-8u-N86">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
             <connections>
@@ -134,6 +144,7 @@
                 <relationship kind="outlet" name="datePicker" candidateClass="NSDatePicker"/>
                 <relationship kind="outlet" name="mapTypeSeg" candidateClass="NSSegmentedControl"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="recenterButton" candidateClass="NSButton"/>
                 <relationship kind="outlet" name="showPopUp" candidateClass="NSPopUpButton"/>
             </relationships>
         </class>

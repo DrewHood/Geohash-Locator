@@ -22,7 +22,7 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
 \**************/
 
 @synthesize locationManager;
-@synthesize tracking;
+@synthesize canTrack, tracking;
 
 /* Methods *\
 \***********/
@@ -44,10 +44,16 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
     self = [super init];
     
     kSharedLocator = self;
+    canTrack = YES;
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.purpose = @"I don't need a reason.";
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // We don't need perfection.
+    
+    // Can we track?
+    if ( [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized )
+        canTrack = NO;
     
     return self;
 }
@@ -103,7 +109,7 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
 {
     BOOL doIt = [CLLocationManager locationServicesEnabled];
     
-    if ( doIt ) {
+    if ( doIt && canTrack ) {
         
         switch ( [CLLocationManager authorizationStatus] ) {
             case kCLAuthorizationStatusNotDetermined:
@@ -150,10 +156,17 @@ NSString * const kLocationManagerDidUpdateLocationNotification = @"_kLocationMan
 
 -(void) locationManager: (CLLocationManager *) manager didChangeAuthorizationStatus: (CLAuthorizationStatus) status
 {
-    if ( status == kCLAuthorizationStatusAuthorized )
+    if ( status == kCLAuthorizationStatusAuthorized ) {
+        
+        canTrack = YES;
         [self startTracking];
-    else
+        
+    } else {
+        
+        canTrack = NO;
         [self stopTracking];
+        
+    }
 }
 
 -(void) locationManager: (CLLocationManager *) manager didFailWithError: (NSError *) error

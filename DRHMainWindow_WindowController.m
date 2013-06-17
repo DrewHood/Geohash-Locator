@@ -13,11 +13,11 @@
 /* Properties *\
 \**************/
 
-@synthesize showMultipleHashes;
+@synthesize showMultipleHashes, listenForUpdates;
 @synthesize mapView;
 @synthesize datePicker;
 @synthesize mapTypeSeg;
-@synthesize clearMapButton;
+@synthesize clearMapButton, recenterButton;
 @synthesize showPopUp;
 
 /* Methods *\
@@ -41,21 +41,36 @@
     mapView.showsCompass = TRUE;
     mapView.mapType = MKMapTypeStandard;
     mapView.showsUserLocation = TRUE;
+    mapView.delegate = self;
+    
+    // If we can't use location, disable My Location button.
+    [recenterButton setEnabled: [DRHGeohashLocator sharedLocator].canTrack];
     
     // Sign up for location notifications
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(locationTrackingDidStart) name: kLocationManagerDidStartTrackingNotification object:[DRHGeohashLocator sharedLocator]];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(centerMapOnCoordinates:) name: kLocationManagerDidUpdateLocationNotification object: [DRHGeohashLocator sharedLocator]];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(locationTrackingDidStop) name: kLocationManagerDidStopTrackingNotification object: [DRHGeohashLocator sharedLocator]];
 }
 
 // View Management
+-(void) setListenForUpdates: (BOOL) listen
+{
+    listenForUpdates = listen;
+    
+    if ( listenForUpdates )
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(centerMapOnCoordinates:) name: kLocationManagerDidUpdateLocationNotification object: [DRHGeohashLocator sharedLocator]];
+    else
+        [[NSNotificationCenter defaultCenter] removeObserver: self name: kLocationManagerDidUpdateLocationNotification object: [DRHGeohashLocator sharedLocator]];
+}
+
 -(void) plotGeohash
 {
     // Clear the map if needed.
     if ( !showMultipleHashes )
         [self clearMap: nil];
     
-    // Extract the user's coords.
-    CLLocationCoordinate2D coords = [[DRHGeohashLocator sharedLocator].locationManager.location coordinate];
+    // Extract the map coords.
+    CLLocationCoordinate2D coords = mapView.region.center;
     
     // Now grab the hash coords.
     CLLocationCoordinate2D hashCoords = [[DRHGeohashLocator sharedLocator] retrieveHashForLat: coords.latitude andLon: coords.longitude forDate: datePicker.dateValue];
@@ -123,9 +138,16 @@
 }
 
 // Location Update Handling
+-(void) locationTrackingDidStart
+{
+    [recenterButton setEnabled: [DRHGeohashLocator sharedLocator].canTrack];
+}
+
 -(void) locationTrackingDidStop
 {
     NSLog(@"Where'd you go?");
+    
+    [recenterButton setEnabled: NO];
 }
 
 -(void) centerMapOnCoordinates: (id) var
@@ -134,6 +156,8 @@
     CLLocationCoordinate2D coords;
     
     // If they're given to us as var, use that, otherwise use user location.
+    BOOL userLoc = FALSE;
+    
     if ( var != nil ) {
         
         if ( [var isKindOfClass: [CLLocation class]] && [var respondsToSelector: @selector(coordinate)] )
@@ -146,11 +170,19 @@
             
         } else if ( [var isKindOfClass: [DRHGeohashLocator class]] && [var respondsToSelector: @selector(locationManager)] )
             coords = [[[var locationManager] location] coordinate];
-        else
+        else {
+            
+            userLoc = TRUE;
             coords = [[[[DRHGeohashLocator sharedLocator] locationManager] location] coordinate];
+            
+        }
         
-    } else
+    } else {
+        
+        userLoc = TRUE;
         coords = [[[[DRHGeohashLocator sharedLocator] locationManager] location] coordinate];
+        
+    }
     
     // We want to center on the graticule, not the location given, so we need to do some math.
     CLLocationDegrees lat = coords.latitude;
@@ -178,8 +210,9 @@
     // Center!
     [mapView setRegion: region animated: YES];
     
-    // Plot the hashpoint.
-    [self plotGeohash];
+    // If we used the user location, stop updating for that.
+    if ( userLoc )
+        [self setListenForUpdates: FALSE];
 }
 
 /* Map View Delegation *\
@@ -187,7 +220,7 @@
 
 -(void) mapView: (MKMapView *) map regionDidChangeAnimated: (BOOL) animated
 {
-    
+    [self plotGeohash];
 }
 
 @end

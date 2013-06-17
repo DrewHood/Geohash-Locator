@@ -17,14 +17,14 @@ extern NSString * const kLocationManagerDidUpdateLocationNotification;
 {
     CLLocationManager * locationManager;
     
-    BOOL tracking;
+    BOOL canTrack, tracking;
 }
 
 /* Properties *\
 \**************/
 
 @property (nonatomic, retain) CLLocationManager * locationManager;
-@property (nonatomic) BOOL tracking;
+@property (nonatomic) BOOL canTrack, tracking;
 
 /* Methods *\
 \***********/
