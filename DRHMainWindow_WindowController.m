@@ -17,7 +17,7 @@
 @synthesize mapView;
 @synthesize datePicker;
 @synthesize mapTypeSeg;
-@synthesize clearMapButton, recenterButton;
+@synthesize clearMapButton, recenterButton, todaysHashButton;
 @synthesize showPopUp;
 
 /* Methods *\
@@ -141,6 +141,13 @@
 -(IBAction) recenterAction: (id) sender
 {
     [self centerMapOnCoordinates: nil];
+}
+
+-(IBAction) todaysHashAction: (id) sender
+{
+    [datePicker setDateValue: [NSDate date]];
+    
+    [self plotGeohash];
 }
 
 // Location Update Handling

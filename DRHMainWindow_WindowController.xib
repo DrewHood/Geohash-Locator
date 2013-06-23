@@ -12,12 +12,14 @@
                 <action selector="mapTypeAction:" destination="P3L-Mc-Hay" id="7kL-PL-aL3"/>
                 <action selector="recenterAction:" destination="j46-dv-1G3" id="Qiw-VU-lh9"/>
                 <action selector="showPopUpAction:" destination="r0K-Gs-dPj" id="UDr-Wl-XxT"/>
+                <action selector="todaysHashAction:" destination="WIh-mQ-P5h" id="6d8-uO-G2m"/>
                 <outlet property="clearMapButton" destination="gE5-7A-GW0" id="bON-wB-5Hj"/>
                 <outlet property="datePicker" destination="lIe-pL-ilf" id="xbe-8Q-mdh"/>
                 <outlet property="mapTypeSeg" destination="P3L-Mc-Hay" id="TXG-bm-oeP"/>
                 <outlet property="mapView" destination="37O-F5-HLN" id="3cD-uD-N9J"/>
                 <outlet property="recenterButton" destination="j46-dv-1G3" id="vyi-Ze-TeO"/>
                 <outlet property="showPopUp" destination="r0K-Gs-dPj" id="fts-aA-QGz"/>
+                <outlet property="todaysHashButton" destination="WIh-mQ-P5h" id="ntW-P5-Izv"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
@@ -171,12 +173,14 @@
                 <relationship kind="action" name="mapTypeAction:"/>
                 <relationship kind="action" name="recenterAction:"/>
                 <relationship kind="action" name="showPopUpAction:"/>
+                <relationship kind="action" name="todaysHashAction:"/>
                 <relationship kind="outlet" name="clearMapButton" candidateClass="NSButton"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="NSDatePicker"/>
                 <relationship kind="outlet" name="mapTypeSeg" candidateClass="NSSegmentedControl"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="recenterButton" candidateClass="NSButton"/>
                 <relationship kind="outlet" name="showPopUp" candidateClass="NSPopUpButton"/>
+                <relationship kind="outlet" name="todaysHashButton" candidateClass="NSButton"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

@@ -15,7 +15,7 @@
     IBOutlet MKMapView * mapView;
     IBOutlet NSDatePicker * datePicker;
     IBOutlet NSSegmentedControl * mapTypeSeg;
-    IBOutlet NSButton * clearMapButton, * recenterButton;
+    IBOutlet NSButton * clearMapButton, * recenterButton, * todaysHashButton;
     IBOutlet NSPopUpButton * showPopUp;
 }
 
@@ -26,7 +26,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView * mapView;
 @property (nonatomic, retain) IBOutlet NSDatePicker * datePicker;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl * mapTypeSeg;
-@property (nonatomic, retain) IBOutlet NSButton * clearMapButton, * recenterButton;
+@property (nonatomic, retain) IBOutlet NSButton * clearMapButton, * recenterButton, * todaysHashButton;
 @property (nonatomic, retain) IBOutlet NSPopUpButton * showPopUp;
 
 /* Methods *\
@@ -45,6 +45,7 @@
 -(IBAction) clearMap: (id) sender;
 -(IBAction) showPopUpAction: (id) sender;
 -(IBAction) recenterAction: (id) sender;
+-(IBAction) todaysHashAction: (id) sender;
 
 // Location Update Handling
 -(void) locationTrackingDidStart;
